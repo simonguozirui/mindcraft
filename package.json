@@ -1,0 +1,23 @@
+{
+  "name": "mindcraft",
+  "description": "mindcraft.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "PORT=3000 live-server --port=3000",
+    "deploy": "ghpages"
+  },
+  "devDependencies": {
+    "ghpages": "0.0.3",
+    "live-server": "^1.2.0"
+  },
+  "keywords": [
+    "aframe",
+    "aframe-example",
+    "aframe-boilerplate",
+    "aframe-scene",
+    "webvr",
+    "bci",
+    "vr"
+  ]
+}
