@@ -3,11 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title>MindCraft</title>
-    <meta name="description" content="Aincraft">
+    <meta name="description" content="MindCraft, a brian-controlled Minecraft in Virtual Reality">
     <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-teleport-controls@0.2.0/dist/aframe-teleport-controls.min.js"></script>
     <script src="https://unpkg.com/aframe-controller-cursor-component@0.2.2/dist/aframe-controller-cursor-component.min.js"></script>
     <script src="https://rawgit.com/ngokevin/aframe-motion-capture/343f99/dist/aframe-motion-capture.min.js"></script>
+    <!-- <script src="https://rawgit.com/ryanbetts/aframe-daydream-controller-component/master/dist/aframe-daydream-controller-component.min.js"></script> -->
     <script src="components/intersection-spawn.js"></script>
     <script src="components/random-color.js"></script>
     <script src="components/snap.js"></script>
@@ -40,6 +41,7 @@
         controller-cursor
         intersection-spawn="event: click; mixin: voxel"
       ></a-entity>
+      <!-- <a-entity daydream-controls="hand: right"></a-entity> -->
 
       <!-- Camera. -->
       <a-camera>
