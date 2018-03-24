@@ -14,6 +14,7 @@
     <script src="components/intersection-spawn.js"></script>
     <script src="components/random-color.js"></script>
     <script src="components/snap.js"></script>
+    <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
   </head>
   <body>
     <a-scene avatar-recorder>
@@ -34,7 +35,6 @@
 
       <!-- Enable this for Google DayDream VR Controller-->
       <a-entity id="dayDreamHand" daydream-controller hand-controls="right"
-      teleport-controls="type: parabolic; collisionEntities: [mixin='voxel'], #ground"
       intersection-spawn="event: click; mixin: voxel"
       ></a-entity>
 
@@ -52,11 +52,18 @@
       <!-- Enable this for Newest Master Version of A-Frame-->
       <!-- <a-entity daydream-controls="hand: right"></a-entity> -->
 
+       <a-entity bmfont-text="text: Hello World; width: 20; align: center"></a-entity>
       <!-- Camera. -->
-      <a-camera>
-        <a-cursor
+      <a-camera active="true" position="0 1.6 0" look-controls wasd-controls>
+         <a-text value="EEG Data Status: Streaming" position="-5 4.5 -9" width="8"></a-text>
+         <a-text value="Alpha: 0" position="-5 4 -9" width="8"></a-text>
+         <a-text value="Beta: 0" position="-5 3.5 -9" width="8"></a-text>
+         <a-text value="Theta: 0" position="-5 3 -9" width="8"></a-text>
+         <a-text value="Delta: 0" position="-5 2.5 -9" width="8"></a-text>
+         <a-cursor></a-cursor>
+        <!-- <a-cursor
           intersection-spawn="event: click; mixin: voxel"
-        ></a-cursor>
+        ></a-cursor> -->
       </a-camera>
     </a-scene>
   </body>
