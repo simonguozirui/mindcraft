@@ -2,22 +2,42 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>MindCraft</title>
-    <meta name="description" content="MindCraft, a brian-controlled Minecraft in Virtual Reality">
+    <title>Mindcraft</title>
+    <meta name="description" content="Aincraft">
     <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-teleport-controls@0.2.0/dist/aframe-teleport-controls.min.js"></script>
-    <!-- Enable this for Oculus and Vive Controllers-->
-    <!-- <script src="https://unpkg.com/aframe-controller-cursor-component@0.2.2/dist/aframe-controller-cursor-component.min.js"></script> -->
+  <!--   <script src="https://unpkg.com/aframe-controller-cursor-component@0.2.2/dist/aframe-controller-cursor-component.min.js"></script> -->
     <script src="https://rawgit.com/ngokevin/aframe-motion-capture/343f99/dist/aframe-motion-capture.min.js"></script>
-    <!-- Enable this for Google DayDream VR Controller-->
     <script src="https://rawgit.com/ryanbetts/aframe-daydream-controller-component/master/dist/aframe-daydream-controller-component.min.js"></script>
     <script src="components/intersection-spawn.js"></script>
     <script src="components/random-color.js"></script>
     <script src="components/snap.js"></script>
-    <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
+    <script src="node_modules/systemjs/dist/system.js"></script>
+    <script src="https://rawgit.com/etiennepinchon/aframe-material/master/dist/aframe-material.min.js"></script>
+     <script type="text/javascript">
+    AFRAME.ASSETS_PATH = "./assets";
+    </script>
+    <script>
+        System.config({
+            packages: {
+                'muse-js': {
+                    defaultJSExtensions: true,
+                    main: 'muse.js',
+                },
+                'rxjs': {
+                    defaultJSExtensions: true,
+                }
+            },
+            map: {
+                'rxjs': 'node_modules/rxjs/',
+                'muse-js': 'node_modules/muse-js/dist'
+            }
+        });
+        SystemJS.import('brain.js');
+    </script>
   </head>
   <body>
-    <a-scene avatar-recorder>
+    <a-scene id="world" avatar-recorder>
       <a-assets>
         <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
         <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg">
@@ -35,35 +55,29 @@
 
       <!-- Enable this for Google DayDream VR Controller-->
       <a-entity id="dayDreamHand" daydream-controller hand-controls="right"
-      intersection-spawn="event: click; mixin: voxel"
+      teleport-controls="type: parabolic; collisionEntities: [mixin='voxel'], #ground"
       ></a-entity>
-
-      <!-- Enable this for Oculus and Vive Controllers-->
+      <!-- Hands. -->
       <!-- <a-entity id="teleHand"
         hand-controls="left"
         teleport-controls="type: parabolic; collisionEntities: [mixin='voxel'], #ground"
-      ></a-entity>
-      <a-entity id="blockHand"
+      ></a-entity> -->
+
+      <a-button position="-0.5 2 -2" onclick="connectToMuse()" value="Connect" type="raised"></a-button>
+<!--       <a-button position="2.5 2 -2" id="mybutton" onclick="alert('TEST click event occured')" value="test" type="raised"></a-button> -->
+
+
+      <!-- <a-entity id="blockHand"
         hand-controls="right"
         controller-cursor
         intersection-spawn="event: click; mixin: voxel"
       ></a-entity> -->
 
-      <!-- Enable this for Newest Master Version of A-Frame-->
-      <!-- <a-entity daydream-controls="hand: right"></a-entity> -->
-
-       <a-entity bmfont-text="text: Hello World; width: 20; align: center"></a-entity>
       <!-- Camera. -->
-      <a-camera active="true" position="0 1.6 0" look-controls wasd-controls>
-         <a-text value="EEG Data Status: Streaming" position="-5 4.5 -9" width="8"></a-text>
-         <a-text value="Alpha: 0" position="-5 4 -9" width="8"></a-text>
-         <a-text value="Beta: 0" position="-5 3.5 -9" width="8"></a-text>
-         <a-text value="Theta: 0" position="-5 3 -9" width="8"></a-text>
-         <a-text value="Delta: 0" position="-5 2.5 -9" width="8"></a-text>
-         <a-cursor></a-cursor>
-        <!-- <a-cursor
+      <a-camera>
+        <a-cursor
           intersection-spawn="event: click; mixin: voxel"
-        ></a-cursor> -->
+        ></a-cursor>
       </a-camera>
     </a-scene>
   </body>

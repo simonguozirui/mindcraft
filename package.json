@@ -1,10 +1,10 @@
 {
-  "name": "mindcraft",
-  "description": "mindcraft.",
+  "name": "aincraft",
+  "description": "Aincraft.",
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "PORT=3000 live-server --port=3000",
+    "start": "PORT=7000 live-server --port=7000",
     "deploy": "ghpages"
   },
   "devDependencies": {
@@ -17,20 +17,10 @@
     "aframe-boilerplate",
     "aframe-scene",
     "webvr",
-    "bci",
     "vr"
   ],
-  "main": "index.js",
   "dependencies": {
-    "muse-js": "^2.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/simonguozirui/mindcraft.git"
-  },
-  "author": "simonguozirui",
-  "bugs": {
-    "url": "https://github.com/simonguozirui/mindcraft/issues"
-  },
-  "homepage": "https://github.com/simonguozirui/mindcraft#readme"
+    "muse-js": "^2.0.0",
+    "systemjs": "^0.21.0"
+  }
 }

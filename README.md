@@ -1,6 +1,7 @@
 # MindCraft
-##### A brain-controlled Minecraft in Virtual Reality
+### A brain-controlled Minecraft in Virtual Reality
 
+This project is a quick demo of how brain-computer interface can be integrated into VR video games. This project received **silver medal** together with my [P300 Research](https://github.com/simonguozirui/math-IA-P300) at the 2018 Toronto Science Fair.
 
 ## Credit
 
@@ -12,9 +13,9 @@ Built with [A-Frame](https://aframe.io).
 
 ## Require
 
-*  Chrome Beta 56 or later, or Chrome Canary.
-* Google DayDream VR.
-* Muse Headband
+* Chrome Beta 56 or later, or Chrome Canary.
+* Google DayDream VR or any VR system with chrome/WebVR browser.
+* Muse Headband 2016
 
 ## Setup
 
